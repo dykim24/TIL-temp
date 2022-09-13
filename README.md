@@ -27,4 +27,4 @@
   - `:w` : 저장하기
   - `:q` : 나오기
   - `:wq` : 저장하고 나오기
- - 참고자료 [링크](https://zeddios.tistory.com)
+ - 참고자료 [링크](https://zeddios.tistory.com/122)
