@@ -74,3 +74,171 @@ git log
 ##### 리포지토리
 
 - 정의 : 여러 파일을 하나로 모은 컬렉션
+## 2022-09-20
+
+### RPA 1기, 웹프로그래밍 기획과 기본
+
+#### Repository 리포지토리
+
+- 정의 : 여러 파일을 하나로 모은 컬렉션
+- 일반 디렉터리와 리포지토리의 차이 : `.git` 디렉터리 유무
+
+#### Repository로 만들기
+
+`git init` (git initialize) : 일반 폴더 → 저장소로 만들기 (.git 숨김폴더 생성됨)
+
+#### Repository 취소
+
+`rm -rf .git` (Remove -Recursive -Force .git) : 저장소로 만든 것 취소 (.git 숨김폴더 삭제)
+
+#### 저장소 상태 파악하기
+
+```
+git status
+```
+
+#### Git 체크아웃
+
+`git checkout commitID` : 저장소 버전 되돌리기 (+ Git Graph 함께 활용하면 편하게 확인 가능)
+
+이후 `git checkout master`로 처음 상태로 돌아가기
+
+#### Commit 수정
+
+`git rebase -i HEAD~1` : 1개의 최신 커밋을 수정 (edit)
+
+#### 스테이징 영역에 올리기
+
+`git add FileName` : 작업 파일을 스테이징 영역에 추가
+
+#### 스테이징 영역에서 내리기
+
+`git reset FileName` : 파일을 스테이징 영역에서 삭제 (Commit을 작성할 때 포함시키지 않는다.)
+
+#### Commit 작성
+
+`git commit -m "Commit Message"` : Commit 작성
+
+#### Commit 업로드
+
+`git push -u origin main` : 작성한 local branch commits 업로드
+
+#### 브랜치
+
+- 정의 : A branch in Git is simply a lightweight movable pointer to one of these commits.
+- 브랜치는 특정한 목표를 가지고 코드를 수정할 때 주로 만듦
+  - 이슈 하나당 브랜치 하나를 주로 만듦
+
+#### Git Branch 명령어
+
+1. 브랜치 목록 보기
+
+```
+git branch
+```
+
+: 현재 생성된 브랜치 확인
+
+2. 브랜치 생성하기
+
+```
+git branch BranchName
+```
+
+: 브랜치 생성
+
+3. 특정 브랜치로 전환하기
+
+```
+git checkout BranchName
+git switch BranchName
+```
+
+: 작업 브랜치 변경
+
+4. 브랜치 생성과 체크아웃 동시에 하기
+
+```
+git checkout -b BranchName
+```
+
+: 브랜치 생성 후 바로 작업 브랜치로 지정 (checkout, switch)
+
+#### Branch 병합
+
+먼저 최종적으로 병합할 브랜치로 전환한다.
+
+```
+git merge BranchName
+```
+
+선택한 브랜치를 가져와 합친다.
+
+## 2022-09-27
+
+### RPA 1기, 웹프로그래밍 기획과 기본
+
+#### Branch 병합시 충돌(conflict) 해결법
+
+1. `git status`
+2. vim, Visual Studio Code 등의 에디터로 충돌 부분 직접 수정
+3. 수정사항 저장
+4. `git add FileName`
+5. `git commit` (Merge 기본 메세지가 있으므로 따로 작성할 필요 없음)
+6. `git log`로 커밋 이력을 출력하여 병합이 제대로 이루어졌는지 확인
+
+#### Git Branch를 활용한 작업 순서도
+
+1. master/main 브랜치로 전환
+
+```
+git checkout main
+git switch main
+```
+
+2. 원격 저장소의 master/main 브랜치에서 내려받기 (동기화)
+
+```
+git pull origin main
+```
+
+3. 작업 브랜치 생성
+
+```
+git branch BranchName
+```
+
+4. 작업 브랜치 변경
+
+```
+git checkout BranchName
+git switch BranchName
+```
+
+5. 소스 코드 수정 후 저장
+
+6. 수정한 파일을 스테이징 영역에 올리기
+
+```
+git add FileName
+```
+
+7. commit 만들기
+
+```
+git commit -m "Commit Message"
+```
+
+8. 원격 저장소에 브랜치 생성하고 동기화
+
+```
+git push -u origin BranchName
+```
+
+9. Github 사이트에서 Pull Request 생성
+
+- New pull request
+- 병합 방향 설정
+- Create pull request
+- ...
+- 검토 후 Merge
