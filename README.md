@@ -337,3 +337,23 @@ npm install
 ```
 npm run serve
 ```
+
+## 2022-10-11
+
+### RPA 1기, 웹프로그래밍 기획과 기본
+
+#### Git의 인증 방법
+
+- ID/PW 방식
+- 키 방식 (공개키/개인키)
+- 토큰 방식 (personal access token)
+
+#### 지금까지 배운 명령어 개념과 함께 복습
+- git commit, git branch, git checkout, git checkout -b, git merge, git pull, git push
+- 참고 사이트 : https://violet-bora-lee.github.io/git-tutorial/
+
+#### git merge 방식
+- 3-way
+- fast-forward
+#### git push가 reject(거절)된 경우 해결법
+- 먼저 git pull해서 원격 저장소의 특정 브랜치에 있는 커밋들을 다 로컬 저장소의 특정 브랜치로 반영한 다음 push하면 리젝트 해결
