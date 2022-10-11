@@ -385,6 +385,28 @@ git commit --amend
 #### git cherry-pick
 다른 브랜치에 있는 커밋을 선택적으로 체크아웃한 브랜치에 적용
 
-`git cherry-pick commitHash
-git cherry-pick commitHash1 commitHash2
-git cherry-pick commitHash1..commitHash3`
+`git cherry-pick commitHash`
+`git cherry-pick commitHash1 commitHash2`
+`git cherry-pick commitHash1..commitHash3`
+
+#### Git Revert
+1. (HEAD가 최신 커밋을 가리키고 있다는 가정하에) 최신 커밋 작업내역 취소하고 돌아가기
+`git revert HEAD`
+2. revert 커밋 생성
+
+3. git push 해서 원격 저장소에 적용
+
+`git push origin main`
+
+#### Git Rebase
+1. 이동시킬 커밋들의 브랜치로 체크아웃한다.
+2. '베이스(기준)' 역할을 할 브랜치를 지정한다.
+`git rebase main`
+3. 커밋들이 main 브랜치의 끝으로 이동한다. (커밋 ID가 변한다. 동일한 내용을 담은 '새로운 커밋'이 생긴 것. 따라서 기존 커밋은 그대로 남아있다.)
+※ Git Merge와의 차이점
+1. merge commit이 생성되지 않는다.
+2. 커밋 그래프가 단순해진다.
+
+#### 일반 merge를 권장한다.
+
+배포가 잦은 프로젝트는 일반 merge로 Pull Request를 병합한다.
