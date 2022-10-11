@@ -356,4 +356,15 @@ npm run serve
 - 3-way
 - fast-forward
 #### git push가 reject(거절)된 경우 해결법
-- 먼저 git pull해서 원격 저장소의 특정 브랜치에 있는 커밋들을 다 로컬 저장소의 특정 브랜치로 반영한 다음 push하면 리젝트 해결
+1. 먼저 git pull 해서 원격 저장소의 특정 브랜치에 있는 커밋들을 다 로컬 저장소의 특정 브랜치로 반영한 다음 push하면 리젝트 해결
+2. 강제 옵션(--force) 사용해 push
+```
+git push -f origin main
+git push --force origin main
+```
+※ git push → push가 정상 동작하는 경우에는 내부에서 fast-forward 방식으로 두 브랜치가 싱크가 맞춰진다.
+
+#### Commit Message 변경
+```
+git commit --amend
+```
