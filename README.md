@@ -382,9 +382,9 @@ git commit --amend
 
 #### git reset한 커밋 복구
 1. commit log 확인
-`git reflog`
+```git reflog```
 2. 복구할 내역 선택해 되돌아가기
-`git reset --hard commitHash`
+```git reset --hard commitHash```
 
 #### git cherry-pick
 다른 브랜치에 있는 커밋을 선택적으로 체크아웃한 브랜치에 적용
