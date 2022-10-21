@@ -355,6 +355,10 @@ npm run serve
 #### git merge 방식
 - 3-way
 - fast-forward
+
+#### git push시 내부에서 일어나는 일
+- (현재 main 브랜치를 체크아웃하고 있다는 가정하에)`git push origin main`을 입력하면 로컬 저장소에 있는 main 브랜치에 있는 모든 커밋이 원격 저장소(origin)에 있는 main 브랜치로 병합되는데, 이때 방식이 fast-forward임.
+
 #### git push가 reject(거절)된 경우 해결법
 1. 먼저 git pull 해서 원격 저장소의 특정 브랜치에 있는 커밋들을 다 로컬 저장소의 특정 브랜치로 반영한 다음 push하면 리젝트 해결
 2. 강제 옵션(--force) 사용해 push
@@ -411,3 +415,9 @@ git commit --amend
 #### 일반 merge를 권장한다.
 
 배포가 잦은 프로젝트는 일반 merge로 Pull Request를 병합한다.
+
+#### git rebase --interactive
+- 커밋의 순서를 변경할 수 있다. (pick)
+- 여러 개의 커밋 메세지를 한꺼번에 수정할 수 있다. (reword)
+- 커밋을 합칠 수 있다. (squash)
+- 중간 커밋을 삭제할 수 있다. (drop)
